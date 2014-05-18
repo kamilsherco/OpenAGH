@@ -44,7 +44,7 @@ public class HtmlRead extends AsyncTask<Void, Void, String[]>
             int i =0;
             for(Element element: elementsHtml)
             {
-                Log.i("PARSED ELEMENTS:",URLDecoder.decode(element.text(), HTTP.UTF_8));
+               // Log.i("PARSED ELEMENTS:",URLDecoder.decode(element.text(), HTTP.UTF_8));
                    line[i]=element.text();
                    i++;
 
@@ -54,6 +54,7 @@ public class HtmlRead extends AsyncTask<Void, Void, String[]>
             e.printStackTrace();
         }
         
+    	
     	
     	return line;
     }
