@@ -49,6 +49,9 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	        	Intent maths = new Intent(this, BookActivity.class);
 	        	maths.putExtra("link","openagh-podreczniki.php?categId=4");
+	        	maths.putExtra("classTag","name");
+	        	maths.putExtra("linkTag","div.openagh-podrecznik-ogolny a");
+	        	maths.putExtra("activity","main");
 	        	startActivity(maths);
 
 
@@ -57,6 +60,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	        case R.id.imPhysic:
 	        	Intent physic = new Intent(this, BookActivity.class);
 	        	physic.putExtra("link","openagh-podreczniki.php?categId=1");
+	        	physic.putExtra("classTag","name");
+	        	physic.putExtra("linkTag","div.openagh-podrecznik-ogolny a");
+	        	physic.putExtra("activity","main");
 	        	startActivity(physic);
 
 
