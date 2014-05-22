@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.List;
 
 
 import org.apache.http.HttpEntity;
@@ -22,30 +24,36 @@ import android.os.AsyncTask;
 
 import android.util.Log;
 
-public class HtmlRead extends AsyncTask<Void, Void, String[]>
+public class HtmlRead extends AsyncTask<Void, Void, List<String>>
 {
-	private String[] line = new String[2];
+	private List<String> line = new ArrayList<String>();
 	private StringBuilder sb = new StringBuilder();
+	public String alias;
+	
+	
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
     }
 
     @Override
-    protected String[] doInBackground(Void... params) {
+    protected List<String> doInBackground(Void... params) {
 
  
     	
     	try{
-            Document doc = Jsoup.connect("http://epodreczniki.open.agh.edu.pl/").get();
+            Document doc = Jsoup.connect("http://epodreczniki.open.agh.edu.pl/"+alias).get();
            // Log.i("DOC", doc.toString().toString());
             
-            Elements elementsHtml = doc.getElementsByAttributeValue("class", "openagh-category-container");
+            Elements elementsHtml = doc.getElementsByAttributeValue("class", "name");
             int i =0;
+           
             for(Element element: elementsHtml)
             {
-               // Log.i("PARSED ELEMENTS:",URLDecoder.decode(element.text(), HTTP.UTF_8));
-                   line[i]=element.text();
+          
+                Log.i("PARSED ELEMENTS:",URLDecoder.decode(element.text(), HTTP.UTF_8));
+                 
+                line.add(element.text());
                    i++;
 
             }
@@ -60,7 +68,7 @@ public class HtmlRead extends AsyncTask<Void, Void, String[]>
     }
 
     @Override
-    protected void onPostExecute(String[] result) {
+    protected void onPostExecute(List<String> result) {
 
         //bind data in lisview or any other componet
         super.onPostExecute(result);

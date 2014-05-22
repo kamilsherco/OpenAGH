@@ -1,58 +1,72 @@
 package com.example.openagh;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.concurrent.ExecutionException;
-
-
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 
 import android.view.Menu;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
 
 
-public class MainActivity extends Activity {
 
-	String[] html = new String[2] ;
+public class MainActivity extends Activity implements OnClickListener {
 
-   
-    private static ListView test;
-    private ArrayAdapter<String> listAdapter ; 
+	private ImageView maths;
+    private ImageView physic;
     
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        test =(ListView)findViewById(R.id.lvURL);
+        inicialize();
       
-    
-     // Create and populate a List of tag.
-      try {
-		html= new HtmlRead().execute().get();
-	} catch (InterruptedException e) {
-	
-		e.printStackTrace();
-	} catch (ExecutionException e) {
-		
-		e.printStackTrace();
-	}
-      ArrayList<String> tagList = new ArrayList<String>();  
-      tagList.addAll( Arrays.asList(html) );
-      
-      // Create ArrayAdapter using the tag list. 
-      listAdapter = new ArrayAdapter<String>(this,R.layout.simplerow, tagList); 
-      
-      
-      // Set the ArrayAdapter as the ListView's adapter.
-      test.setAdapter( listAdapter );
-        
     }
 
+	void inicialize()
+    {
 
+        maths = (ImageView) findViewById(R.id.imMaths);
+        maths.setOnClickListener(this);
+      
+        physic = (ImageView) findViewById(R.id.imPhysic);
+        physic.setOnClickListener(this);
+        
+        
+    }
+	
+	
+	  @Override
+	    public void onClick(View arg0) {
+	        // TODO Auto-generated method stub
+	        switch(arg0.getId())
+	        {
+
+	        case R.id.imMaths:
+
+	        	Intent maths = new Intent(this, BookActivity.class);
+	        	maths.putExtra("link","openagh-podreczniki.php?categId=4");
+	        	startActivity(maths);
+
+
+
+	            break;
+	        case R.id.imPhysic:
+	        	Intent physic = new Intent(this, BookActivity.class);
+	        	physic.putExtra("link","openagh-podreczniki.php?categId=1");
+	        	startActivity(physic);
+
+
+	            break;
+
+	        }
+
+
+	    }
+	
 	
 	
 	
