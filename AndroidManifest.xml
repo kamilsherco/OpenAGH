@@ -32,6 +32,11 @@
             android:name=".ViewBookActivity"
             android:label="@string/app_name" >
             </activity>
+            <activity
+            android:name=".SignInActivity"
+            android:label="@string/app_name" >
+            </activity>
+           
     </application>
 
 </manifest>

@@ -69,7 +69,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	        	physic.putExtra("linkTag","div.openagh-podrecznik-ogolny a");
 	        	physic.putExtra("activity","main");
 	        	startActivity(physic);
-
+ 
 
 	            break;
 	            
