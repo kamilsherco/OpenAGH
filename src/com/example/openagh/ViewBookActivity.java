@@ -19,6 +19,7 @@ public class ViewBookActivity extends Activity {
         setContentView(R.layout.activity_viewbook);
        
         WebView myWebView = (WebView) findViewById(R.id.webview);
+        myWebView.getSettings().setBuiltInZoomControls(true);
         mainIntent = getIntent(); // gets the previously created intent
         link = mainIntent.getStringExtra("link");
         myWebView.getSettings().setJavaScriptEnabled(true);

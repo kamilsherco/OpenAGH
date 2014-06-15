@@ -27,21 +27,28 @@ public final class R {
         public static final int logo_open=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f080008;
+        public static final int action_settings=0x7f08000e;
+        public static final int bSignMain=0x7f080006;
+        public static final int bSignin=0x7f08000b;
+        public static final int edPassword=0x7f08000a;
+        public static final int etName=0x7f080008;
         public static final int imLogo=0x7f080000;
         public static final int imMaths=0x7f080005;
         public static final int imPhysic=0x7f080004;
         public static final int lhome=0x7f080003;
         public static final int lvURL=0x7f080002;
-        public static final int rowTextView=0x7f080007;
+        public static final int rowTextView=0x7f08000d;
         public static final int scrollView1=0x7f080001;
-        public static final int webview=0x7f080006;
+        public static final int textView2=0x7f080009;
+        public static final int tvName=0x7f080007;
+        public static final int webview=0x7f08000c;
     }
     public static final class layout {
         public static final int activity_book=0x7f030000;
         public static final int activity_main=0x7f030001;
-        public static final int activity_viewbook=0x7f030002;
-        public static final int simplerow=0x7f030003;
+        public static final int activity_singin=0x7f030002;
+        public static final int activity_viewbook=0x7f030003;
+        public static final int simplerow=0x7f030004;
     }
     public static final class menu {
         public static final int main=0x7f070000;

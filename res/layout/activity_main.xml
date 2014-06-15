@@ -27,4 +27,12 @@
         android:layout_marginTop="15dp"
         android:src="@drawable/b_matematyka" />
 
+    <Button
+        android:id="@+id/bSignMain"
+        android:layout_width="200dp"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Zaloguj się" />
+
 </LinearLayout>

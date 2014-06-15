@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageView;
 
 
@@ -17,6 +18,7 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	private ImageView maths;
     private ImageView physic;
+    private Button signin;
     
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,9 @@ public class MainActivity extends Activity implements OnClickListener {
       
         physic = (ImageView) findViewById(R.id.imPhysic);
         physic.setOnClickListener(this);
+        
+        signin= (Button) findViewById(R.id.bSignMain);
+        signin.setOnClickListener(this);
         
         
     }
@@ -64,6 +69,14 @@ public class MainActivity extends Activity implements OnClickListener {
 	        	physic.putExtra("linkTag","div.openagh-podrecznik-ogolny a");
 	        	physic.putExtra("activity","main");
 	        	startActivity(physic);
+
+
+	            break;
+	            
+	        case R.id.bSignMain:
+	        
+	        	Intent signin = new Intent(this, SignInActivity.class);
+	        	startActivity(signin);
 
 
 	            break;
