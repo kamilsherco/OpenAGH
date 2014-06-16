@@ -21,6 +21,7 @@ public class SignInActivity extends Activity implements OnClickListener  {
 	private EditText userName;
     private EditText password;
     private Button signin;
+    private SignInRead task;
       
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,7 @@ public class SignInActivity extends Activity implements OnClickListener  {
       
     }
 
-	void inicialize()
+	private void inicialize()
     {
 
         userName = (EditText) findViewById(R.id.etName);
@@ -50,7 +51,7 @@ public class SignInActivity extends Activity implements OnClickListener  {
 		 switch(arg0.getId())
 	        {
 	case R.id.bSignin:
-		SignInRead task = new SignInRead();
+		task = new SignInRead();
 		
         task.name=userName.getText().toString();
         task.pass=password.getText().toString();

@@ -27,6 +27,7 @@ public class BookActivity extends Activity implements OnItemClickListener {
     private String classTag;
     private String linkTag;
     private String withActivity;
+    private HtmlRead task;
     
    
     
@@ -50,7 +51,7 @@ public class BookActivity extends Activity implements OnItemClickListener {
         withActivity=mainIntent.getStringExtra("activity");
         
         
-        HtmlRead task = new HtmlRead();
+        task = new HtmlRead();
         task.alias=link;
         task.TagsToClass=classTag;
         task.TagsToLink=linkTag;

@@ -12,13 +12,14 @@ public class ViewBookActivity extends Activity {
 	
 	private Intent mainIntent;
 	private String link;
+	private WebView myWebView;
 
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.activity_viewbook);
        
-        WebView myWebView = (WebView) findViewById(R.id.webview);
+        myWebView = (WebView) findViewById(R.id.webview);
         myWebView.getSettings().setBuiltInZoomControls(true);
         mainIntent = getIntent(); // gets the previously created intent
         link = mainIntent.getStringExtra("link");

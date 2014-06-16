@@ -28,7 +28,7 @@ public class MainActivity extends Activity implements OnClickListener {
       
     }
 
-	void inicialize()
+	private void inicialize()
     {
 
         maths = (ImageView) findViewById(R.id.imMaths);

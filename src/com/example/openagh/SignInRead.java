@@ -52,22 +52,7 @@ public class SignInRead extends AsyncTask<Void, Void, List<String>>
     		
     		Log.i("DOC", doc.toString().toString());
             
-            /*Elements elementsHtml = doc.getElementsByAttributeValue("class", TagsToClass);
-            
-           
-            for(Element element: elementsHtml)
-            {
           
-                //Log.i("PARSED ELEMENTS:",URLDecoder.decode(element.text(), HTTP.UTF_8));
-              
-                line.add(element.text());
-                linkToelement= doc.select(TagsToLink).first();
-                
-                
-                line.add(linkToelement.attr("href"));
-                
-
-            }*/
             
             
 
