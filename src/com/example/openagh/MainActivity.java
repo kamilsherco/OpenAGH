@@ -2,8 +2,11 @@ package com.example.openagh;
 
 
 
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 
 import android.view.Menu;
@@ -11,6 +14,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 
 
@@ -25,6 +29,10 @@ public class MainActivity extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         inicialize();
+        if(!isOnline()){
+        	Toast.makeText(getApplicationContext(), "Brak dostêpu do internetu. Proszê sie po³¹czyæ!!", 
+        			   Toast.LENGTH_LONG).show();
+        }
       
     }
 
@@ -42,6 +50,16 @@ public class MainActivity extends Activity implements OnClickListener {
         
         
     }
+	
+	public boolean isOnline() {
+	    ConnectivityManager cm =
+	        (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+	    NetworkInfo netInfo = cm.getActiveNetworkInfo();
+	    if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+	        return true;
+	    }
+	    return false;
+	}
 	
 	
 	  @Override

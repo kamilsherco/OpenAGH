@@ -6,7 +6,10 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,6 +17,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class BookActivity extends Activity implements OnItemClickListener {
@@ -43,6 +47,10 @@ public class BookActivity extends Activity implements OnItemClickListener {
         
         setContentView(R.layout.activity_book);
         test =(ListView)findViewById(R.id.lvURL);
+        if(!isOnline()){
+        	Toast.makeText(getApplicationContext(), "Brak dostêpu do internetu. Proszê sie po³¹czyæ!!", 
+        			   Toast.LENGTH_LONG).show();
+        }
         
         mainIntent = getIntent(); // gets the previously created intent
         link = mainIntent.getStringExtra("link");
@@ -112,7 +120,15 @@ public class BookActivity extends Activity implements OnItemClickListener {
 			 
 			}
 	}
-
+	public boolean isOnline() {
+	    ConnectivityManager cm =
+	        (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+	    NetworkInfo netInfo = cm.getActiveNetworkInfo();
+	    if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+	        return true;
+	    }
+	    return false;
+	}
 	 @Override
 	    public void onBackPressed() {
 	            super.onBackPressed();
